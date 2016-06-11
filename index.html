@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Charting Example</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+    <style>
+        body { padding-top:50px; }
+    </style>
+
+    <!-- JS -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/angular-chart.js"></script>
+    <script src="app.js"></script>
+
+</head>
+<body>
+<div class="container" ng-app="app" ng-controller="LineCtrl" ng-init="init()">
+
+    <!--<h2>{{ title }}</h2>-->
+    <!--<h3>{{ lastBuildDate }}</h3>-->
+
+Weather Forecast for
+<button ng-click="setCity('Prague')" ng-disabled="currentCity=='Prague'">Prague</button>
+<button ng-click="setCity('Jerusalem')" ng-disabled="currentCity=='Jerusalem'">Jerusalem</button>
+<button ng-click="setCity('Tel Aviv')" ng-disabled="currentCity=='Tel Aviv'">Tel Aviv</button>
+<button ng-click="setCity('Eilat')" ng-disabled="currentCity=='Eilat'">Eilat</button>
+<button ng-click="setCity('New York')" ng-disabled="currentCity=='New York'">New York</button>
+
+<canvas id="line" class="chart chart-line" chart-data="data"
+        chart-labels="labels" chart-legend="true" chart-series="series"
+        chart-options="{type:'line'}"
+        chart-click="onClick">
+</canvas>
+
+</div>
+</body>
+</html>

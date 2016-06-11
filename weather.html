@@ -1,0 +1,8 @@
+<script>
+  var callbackFunction = function(data) {
+    var weather = data.query.results.channel;
+    console.dir(weather);
+  };
+</script>
+
+<script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='prague, czech republic')&format=json&callback=callbackFunction"></script>
