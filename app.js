@@ -21,6 +21,8 @@ angular.module("app", ["chart.js"]).controller("LineCtrl", function ($scope,$htt
           text = "eilat, israel";
       else if (city=="New York")
           text = "new york, us";
+      else if (city=="Brno")
+          text = "brno, czech republic";
       var endpoint = "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='"+text+"')&format=json";
       $http.get(endpoint).success(function(data) {
 	      console.dir(data.query.results.channel);
